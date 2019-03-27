@@ -11,7 +11,6 @@ let initData = {
     data: [],
     editData: {},
     editIndex: 0,
-    editValue:'',
     edit: false
 }
 
@@ -37,14 +36,15 @@ const toDoReducer = (data = initData, action) => {
             return {...data};
         case EDIT_TODO:
             //console.log('EDIT_TODO',action.item.index + ' - ' + action.item.value );
-            data.editValue = action.item.value;
-            console.log('action.item.value', data.editValue);
+            //data.editValue = action.item.value;
+            //console.log('action.item.value', data.editValue);
             //todoItems[this.state.indexId].value = item.newItemValue;
-            //data.data[action.index].value = 'adasdasuuuuuuuuuuu';
+            data.data[action.index].value = 'adasdasuuuuuuuuuuu';
             return {...data};
         case ADD_TO_EDIT_TODO:
             data.editData = action.item
             data.index = action.index
+            console.log('action.item.value', data.editData);
             //return data.editData = action.item;
             return {...data};
         default:

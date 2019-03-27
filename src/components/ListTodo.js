@@ -19,7 +19,8 @@ export class ListTodo extends Component {
     onClickItem(index, item) {
       //this.setState({ itemValue: e.target.value });
       //console.log('this.props.editTodo(index, item)', this.props.editTodo(index, item))
-      this.props.addToEditTodo(index, item);
+      //this.props.addToEditTodo(index, item);
+      this.props.addToEditTodo( index ,item);
     }
 
   render() {

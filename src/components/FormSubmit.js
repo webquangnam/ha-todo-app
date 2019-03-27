@@ -16,7 +16,7 @@ export class FormSubmit extends Component {
     onChangeText(e) {
         this.setState({ itemValue: e.target.value });
         //this.setState({ itemValue: e.target.value });
-        this.props.addToEditTodo( 1 ,{ index:1 , value: this.state.itemValue, done: false });
+        //this.props.addToEditTodo( 1 ,{ index:1 , value: this.state.itemValue, done: false });
        
     }
     
