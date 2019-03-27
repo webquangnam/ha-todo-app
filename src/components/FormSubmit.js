@@ -22,6 +22,8 @@ export class FormSubmit extends Component {
         let item = { newItemValue: this.state.itemValue };
         this.props.addTodo(item);
         //console.log('item', item);
+
+        this.setState({ itemValue: '' });
     }
 
   render() {

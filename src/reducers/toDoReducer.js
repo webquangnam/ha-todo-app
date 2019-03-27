@@ -22,22 +22,24 @@ const toDoReducer = (data = initData, action) => {
     switch (action.type) {
         case LIST_TODO:
            return data;
-        case ADD_TODO:           
-           return [...data.data, {  index: data.data.length + 1, value: action.item.newItemValue, done: false }];
+        case ADD_TODO:            
+            // let value = {  index: data.data.length + 1, value: action.item.newItemValue, done: false };
+           data.data = [...data.data, {  index: data.data.length + 1, value: action.item.newItemValue, done: false }];
+           //data.data =  [...data.data, {  index: 3, value: 'abc', done: false }];
            //data.data.unshift(...data.data, { index: data.data.length + 1, value: action.item.newItemValue, done: false  });
-
-          //return [data.data];
+           //console.log('data', data);
+          return {...data};
 
         case DELETE_TODO:      
-            data.splice(action.index, 1);
-            return [...data];
+            data.data.splice(action.index, 1);
+            return {...data};
         case EDIT_TODO:
             console.log('EDIT_TODO',action.item.index + ' - ' + action.item.value );
             //todoItems[this.state.indexId].value = item.newItemValue;
-            data[action.index].value = 'adasdasuuuuuuuuuuu';
-            return [...data];
+            data.data[action.index].value = 'adasdasuuuuuuuuuuu';
+            return {...data};
         default:
-          return data.data;
+          return data;
       }
 }
 

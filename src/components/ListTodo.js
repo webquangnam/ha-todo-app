@@ -23,7 +23,7 @@ export class ListTodo extends Component {
     }
 
   render() {
-    //console.log('this.props.items', this.props.items);
+    console.log('this.props.items', this.props.items);
     return (
         <ul className="list-group">
             { this.props.items.map((item, index) => {
