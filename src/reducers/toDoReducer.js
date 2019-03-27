@@ -2,6 +2,7 @@ import {
     LIST_TODO,
     ADD_TODO,
     DELETE_TODO,
+    ADD_TO_EDIT_TODO,
     EDIT_TODO,
 } from '../constants/actionType';
 
@@ -10,13 +11,14 @@ let initData = {
     data: [],
     editData: {},
     editIndex: 0,
+    editValue:'',
     edit: false
 }
 
 
 // todoItems.push({ index: 1, value: "learn react", done: false });
 // todoItems.push({ index: 2, value: "Go shopping", done: true });
-// todoItems.push({ index: 3, value: "buy flowers", done: true });
+//initData.data.push({ index: 3, value: "buy flowers", done: true });
 
 const toDoReducer = (data = initData, action) => {
     switch (action.type) {
@@ -34,9 +36,16 @@ const toDoReducer = (data = initData, action) => {
             data.data.splice(action.index, 1);
             return {...data};
         case EDIT_TODO:
-            console.log('EDIT_TODO',action.item.index + ' - ' + action.item.value );
+            //console.log('EDIT_TODO',action.item.index + ' - ' + action.item.value );
+            data.editValue = action.item.value;
+            console.log('action.item.value', data.editValue);
             //todoItems[this.state.indexId].value = item.newItemValue;
-            data.data[action.index].value = 'adasdasuuuuuuuuuuu';
+            //data.data[action.index].value = 'adasdasuuuuuuuuuuu';
+            return {...data};
+        case ADD_TO_EDIT_TODO:
+            data.editData = action.item
+            data.index = action.index
+            //return data.editData = action.item;
             return {...data};
         default:
           return data;

@@ -24,24 +24,21 @@ class App extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { toDoReducer } = nextProps;
-    console.log('toDoReducer', toDoReducer.data);
+    //console.log('toDoReducer', toDoReducer.data);
     return { data: toDoReducer.data };
   } 
 
 
   render() {    
     const { data } = this.state;
-    console.log('this.state', this.state);
-    console.log('this.props', this.props);
-    const { toDoReducer } = this.props;
+    //console.log('this.state', this.state);
+    //console.log('this.props', this.props);
+    //const { toDoReducer } = this.props;
     return (
       <div id="main">
         <Header/>
-        {
-          data ? <ListTodo items={toDoReducer ? toDoReducer.data : []}/> : null
-        }
-        
-        <FormSubmit/>
+        <ListTodo items={data}/>
+        <FormSubmit />
       </div>
     );
   }

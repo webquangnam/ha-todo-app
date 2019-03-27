@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { deleteTodo, editTodo} from '../actions/toDoActions';
+import { deleteTodo, addToEditTodo} from '../actions/toDoActions';
 
 export class ListTodo extends Component {
     constructor(props) {
@@ -18,12 +18,12 @@ export class ListTodo extends Component {
 
     onClickItem(index, item) {
       //this.setState({ itemValue: e.target.value });
-      console.log('this.props.editTodo(index, item)', this.props.editTodo(index, item))
-      this.props.editTodo(index, item);
+      //console.log('this.props.editTodo(index, item)', this.props.editTodo(index, item))
+      this.props.addToEditTodo(index, item);
     }
 
   render() {
-    console.log('this.props.items', this.props.items);
+    //console.log('this.props.items', this.props.items);
     return (
         <ul className="list-group">
             { this.props.items.map((item, index) => {
@@ -50,5 +50,5 @@ const mapStateToProps = state => {
   }; 
   export default connect(
     mapStateToProps,
-    { deleteTodo, editTodo }
+    { deleteTodo, addToEditTodo }
   )(ListTodo);

@@ -1,4 +1,4 @@
-import {LIST_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO} from '../constants/actionType';
+import {LIST_TODO, ADD_TODO, DELETE_TODO, ADD_TO_EDIT_TODO, EDIT_TODO} from '../constants/actionType';
 
 export const listTodo = () => {
     return{
@@ -16,6 +16,13 @@ export const deleteTodo = index => {
     return{
         type: DELETE_TODO,
         index
+    };
+};
+export const addToEditTodo = (index, item) => {
+    return{
+        type: ADD_TO_EDIT_TODO,
+        index,
+        item
     };
 };
 export const editTodo = (index, item) => {

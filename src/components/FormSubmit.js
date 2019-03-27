@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/toDoActions';
+import { addTodo, addToEditTodo } from '../actions/toDoActions';
 
 
 
@@ -15,7 +15,11 @@ export class FormSubmit extends Component {
     }
     onChangeText(e) {
         this.setState({ itemValue: e.target.value });
+        //this.setState({ itemValue: e.target.value });
+        this.props.addToEditTodo( 1 ,{ index:1 , value: this.state.itemValue, done: false });
+       
     }
+    
     
     onSubmit(event) {
         event.preventDefault();
@@ -25,6 +29,13 @@ export class FormSubmit extends Component {
 
         this.setState({ itemValue: '' });
     }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        const { toDoReducer } = nextProps;
+        console.log('toDoReducer.editValue', toDoReducer.editData.value);
+        return {
+            //itemValue: toDoReducer.editData.value
+        }
+    }
 
   render() {
     //console.log('this.props.items', this.props.editTodo(index, item));
@@ -32,6 +43,7 @@ export class FormSubmit extends Component {
         <form ref="form" className="form-inline" onSubmit={this.onSubmit}>
             <input type="text" ref="itemName" value={this.state.itemValue} className="form-control" placeholder="thêm công việc..." onChange={this.onChangeText}/>
             <button type="submit" className="btn btn-default" >Thêm</button>
+            
         </form> 
     )
   }
@@ -44,5 +56,5 @@ const mapStateToProps = state => {
 
   export default connect(
     mapStateToProps,
-    { addTodo }
+    { addTodo, addToEditTodo }
 )(FormSubmit);
