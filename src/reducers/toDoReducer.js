@@ -43,7 +43,7 @@ const toDoReducer = (data = initData, action) => {
             return {...data};
         case ADD_TO_EDIT_TODO:
             data.editData = action.item
-            data.index = action.index
+            data.editIndex = action.index
             console.log('action.item.value', data.editData);
             //return data.editData = action.item;
             return {...data};
