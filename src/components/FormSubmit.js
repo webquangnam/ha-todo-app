@@ -8,13 +8,21 @@ export class FormSubmit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemValue: ''
+            itemValue: '',
+            itemValue1: 'sâf'
         }
         this.onChangeText = this.onChangeText.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeText1 = this.onChangeText1.bind(this);
     }
     onChangeText(e) {
         this.setState({ itemValue: e.target.value });
+        //this.setState({ itemValue: e.target.value });
+        //this.props.addToEditTodo( 1 ,{ index:1 , value: this.state.itemValue, done: false });
+       
+    }
+    onChangeText1(e) {
+        this.setState({ itemValue1: e.target.value });
         //this.setState({ itemValue: e.target.value });
         //this.props.addToEditTodo( 1 ,{ index:1 , value: this.state.itemValue, done: false });
        
@@ -29,11 +37,12 @@ export class FormSubmit extends Component {
 
         this.setState({ itemValue: '' });
     }
+
     static getDerivedStateFromProps(nextProps, prevState) {
         const { toDoReducer } = nextProps;
-        console.log('toDoReducer.editValue', toDoReducer.editData.value);
+        //console.log('toDoReducer.editValue', toDoReducer.editData.value);
         return {
-            //itemValue: toDoReducer.editData.value
+            //itemValue1: toDoReducer.editData.value
         }
     }
 
@@ -43,6 +52,8 @@ export class FormSubmit extends Component {
         <form ref="form" className="form-inline" onSubmit={this.onSubmit}>
             <input type="text" ref="itemName" value={this.state.itemValue} className="form-control" placeholder="thêm công việc..." onChange={this.onChangeText}/>
             <button type="submit" className="btn btn-default" >Thêm</button>
+
+            <input type="text" ref="itemName" value={this.state.itemValue1} className="form-control" placeholder="thêm công việc..." onChange={this.onChangeText1}/>
             
         </form> 
     )
