@@ -27,18 +27,20 @@ export class FormSubmit extends Component {
         let item = { newItemValue: this.state.itemValue };
         if(this.state.edit){
             this.props.editTodo(item);
+            this.setState({ edit: false });
         }
         else{
             this.props.addTodo(item);
             //console.log('item', item);
-            this.setState({ itemValue: '' });
+            
         }
+        this.setState({ itemValue: '' });
         
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
         const { toDoReducer } = nextProps;
-        if(toDoReducer.edit){
+        if(toDoReducer.edit  && !prevState.edit){
             return {
                 itemValue: toDoReducer.editData.value,
                 edit: true
