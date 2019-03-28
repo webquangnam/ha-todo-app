@@ -25,10 +25,9 @@ export const addToEditTodo = (index, item) => {
         item
     };
 };
-export const editTodo = (index, item) => {
+export const editTodo = (item) => {
     return{
         type: EDIT_TODO,
-        index,
         item
     };
 };

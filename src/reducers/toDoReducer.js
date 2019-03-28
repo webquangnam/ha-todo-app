@@ -35,17 +35,19 @@ const toDoReducer = (data = initData, action) => {
             data.data.splice(action.index, 1);
             return {...data};
         case EDIT_TODO:
-            //console.log('EDIT_TODO',action.item.index + ' - ' + action.item.value );
+            console.log('EDIT_TODO', data.editData.value );
             //data.editValue = action.item.value;
-            //console.log('action.item.value', data.editValue);
+            console.log('action.item.value', action.item.newItemValue);
             //todoItems[this.state.indexId].value = item.newItemValue;
-            data.data[action.index].value = 'adasdasuuuuuuuuuuu';
+            data.data[data.editIndex].value = action.item.newItemValue;
+            data.edit = false;
             return {...data};
         case ADD_TO_EDIT_TODO:
             data.editData = action.item
             data.editIndex = action.index
             console.log('action.item.value', data.editData);
             //return data.editData = action.item;
+            data.edit = true;
             return {...data};
         default:
           return data;
