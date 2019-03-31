@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { addTodo, addToEditTodo, editTodo } from '../actions/toDoActions';
 
 
-
 export class FormSubmit extends Component {
     constructor(props) {
         super(props);
@@ -35,7 +34,6 @@ export class FormSubmit extends Component {
             
         }
         this.setState({ itemValue: '' });
-        
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
