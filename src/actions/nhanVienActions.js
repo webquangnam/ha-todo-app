@@ -6,8 +6,9 @@ export const listNhanViens = () => {
   };
 };
 
-export const addNhanViens = () => {
+export const addNhanViens = (item) => {
   return {
-    type: ADD_NHANVIEN
+    type: ADD_NHANVIEN,
+    item
   };
 };

@@ -17,7 +17,9 @@ const nhanVienReducer = (data = initData, action) => {
             return [];
 
         case ADD_NHANVIEN_SUCCESS:
-            return [];
+            data = action.data;
+            return data;
+
         case ADD_NHANVIEN_FAIL:
             return [];
 
