@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addNhanViens } from '../actions/nhanVienActions';
+import { addNhanViens, listNhanViens } from '../actions/nhanVienActions';
 
 
 export class AddNhanVien extends Component {
@@ -13,26 +13,17 @@ export class AddNhanVien extends Component {
       diachi:''
     }
     this.onSubmit = this.onSubmit.bind(this);
-    this.onChangeTen = this.onChangeTen.bind(this);
-    this.onChangeSDT = this.onChangeSDT.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeDiaChi = this.onChangeDiaChi.bind(this);
+    this.onChangeValue = this.onChangeValue.bind(this);
   }
 
-  onChangeTen(e) {
-    this.setState({ ten: e.target.value });
-  }
-  onChangeSDT(e) {
-    this.setState({ sdt: e.target.value });
-  }
-  onChangeEmail(e) {
-    this.setState({ email: e.target.value });
-  }
-  onChangeDiaChi(e) {
-    this.setState({ diachi: e.target.value });
-  }
 
-  
+
+  onChangeValue(e) {
+    let name = e.target.name;
+    this.setState({
+      [name]: e.target.value
+    });
+  }
 
   onSubmit(event) {
     event.preventDefault();
@@ -46,40 +37,47 @@ export class AddNhanVien extends Component {
     //let item = { newItemValue: this.state.item };
 
     this.props.addNhanViens(item);
-    console.log('item', item);
-    //this.setState({ itemValue: '' });
+    this.props.listNhanViens();
+
+    //console.log('item', item);
+    this.setState({ 
+      ten:'',
+      sdt:'',
+      email:'',
+      diachi:''
+    });
   }
   
 
   render() {
     //const {ten, sdt, email, diachi} = this.state;
-    //console.log('ten', this.state.ten);
+    console.log('this.props', this.props);
     return (
         <form className="form-horizontal" onSubmit={this.onSubmit}>
         <div className="form-group">
           <label htmlFor="inputTen" className="col-sm-2 control-label">Tên</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" id="inputTen" placeholder="Tên" onChange={this.onChangeTen}/>
+            <input type="text" className="form-control" id="inputTen" name="ten" placeholder="Tên" onChange={this.onChangeValue}/>
           </div>
         </div>
 
         <div className="form-group">
           <label htmlFor="inputSDT" className="col-sm-2 control-label">Số điện thoại</label>
           <div className="col-sm-10">
-            <input type="number" className="form-control" id="inputSDT" placeholder="Tên" onChange={this.onChangeSDT}/>
+            <input type="number" className="form-control" id="inputSDT" name="sdt" placeholder="Số điện thoại" onChange={this.onChangeValue}/>
           </div>
         </div>
 
         <div className="form-group">
           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
           <div className="col-sm-10">
-            <input type="email" className="form-control" id="inputEmail3" placeholder="Email" onChange={this.onChangeEmail}/>
+            <input type="email" className="form-control" id="inputEmail3" name="email" placeholder="Email" onChange={this.onChangeValue}/>
           </div>
         </div>
         <div className="form-group">
           <label htmlFor="inputDiaChi" className="col-sm-2 control-label">	Địa chỉ</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" id="inputDiaChi" placeholder="Địa chỉ" onChange={this.onChangeDiaChi}/>
+            <input type="text" className="form-control" id="inputDiaChi" name="diachi" placeholder="Địa chỉ" onChange={this.onChangeValue}/>
           </div>
         </div>
         
@@ -102,6 +100,6 @@ const mapStateFromProps=state=>{
 }
 export default connect(
 mapStateFromProps,
-{ addNhanViens }
+{ addNhanViens, listNhanViens }
 )(AddNhanVien);
 

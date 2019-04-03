@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { listNhanViens } from '../actions/nhanVienActions';
-import { AddNhanVien } from './AddNhanVien';
+import AddNhanVien from './AddNhanVien';
 
 export class ListNhanVien extends Component {
     constructor(props) {

@@ -25,11 +25,11 @@ const toDoReducer = (data = initData, action) => {
            return data;
         case ADD_TODO:            
             // let value = {  index: data.data.length + 1, value: action.item.newItemValue, done: false };
-           data.data = [...data.data, {  index: data.data.length + 1, value: action.item.newItemValue, done: false }];
-           //data.data =  [...data.data, {  index: 3, value: 'abc', done: false }];
-           //data.data.unshift(...data.data, { index: data.data.length + 1, value: action.item.newItemValue, done: false  });
-           //console.log('data', data);
-          return {...data};
+            data.data = [...data.data, {  index: data.data.length + 1, value: action.item.newItemValue, done: false }];
+            //data.data =  [...data.data, {  index: 3, value: 'abc', done: false }];
+            //data.data.unshift(...data.data, { index: data.data.length + 1, value: action.item.newItemValue, done: false  });
+            //console.log('data', data);
+            return {...data};
 
         case DELETE_TODO:      
             data.data.splice(action.index, 1);

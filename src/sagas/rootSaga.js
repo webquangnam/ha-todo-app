@@ -4,7 +4,8 @@ import { watchFetchListNhanVien, watchFetchAddNhanVien } from './nhanVienSaga';
 
 const rootSaga = function* rootSaga() {
     yield all([
-        fork(watchFetchListNhanVien, watchFetchAddNhanVien)
+        fork(watchFetchListNhanVien),
+        fork(watchFetchAddNhanVien)
     ]);
 };
 

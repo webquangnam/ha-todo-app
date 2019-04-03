@@ -5,9 +5,9 @@ const json = yield fetch('http://vntests.com/APIReact/dsnhanvien.php')
   return yield json;
 };
 
-const addNhanVienApi = function* addNhanVienApi(item) {
+const addNhanVienApi = function* addNhanVienApi(data) {
   //const json = yield fetch('https://highlightsfootball.com/wp-json/wp/v2/posts')
-  const json = yield fetch('http://vntests.com/APIReact/addnhanvien.php', { method: 'POST', body: item })
+  const json = yield fetch('http://vntests.com/APIReact/addnhanvien.php', { method: 'POST', body: data.item })
     .then(response => response.json(), );
     return yield json;
   };

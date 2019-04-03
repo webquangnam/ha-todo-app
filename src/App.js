@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import ListTodo from './components/ListTodo';
 import FormSubmit from './components/FormSubmit';
+import DemoAntd from './components/DemoAntd';
+
 import { connect } from 'react-redux';
 import { listTodo } from './actions/toDoActions';
 
@@ -36,9 +38,12 @@ class App extends Component {
     //const { toDoReducer } = this.props;
     return (
       <div id="main">
+
         <Header/>
         <ListTodo items={data}/>
         <FormSubmit />
+
+        <DemoAntd/>
       </div>
     );
   }
