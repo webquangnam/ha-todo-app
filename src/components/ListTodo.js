@@ -22,7 +22,7 @@ export class ListTodo extends Component {
       //this.props.addToEditTodo(index, item);
       this.props.addToEditTodo( index ,item);
     }
-
+ 
   render() {
     //console.log('this.props.items', this.props.items);
     return (

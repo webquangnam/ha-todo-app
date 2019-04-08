@@ -4,7 +4,13 @@ import {
     LIST_NHANVIEN_FAIL,
     ADD_NHANVIEN,
     ADD_NHANVIEN_SUCCESS,
-    ADD_NHANVIEN_FAIL
+    ADD_NHANVIEN_FAIL,
+    EDIT_NHANVIEN,
+    EDIT_NHANVIEN_SUCCESS,
+    EDIT_NHANVIEN_FAIL,
+    DEL_NHANVIEN_SUCCESS,
+    DEL_NHANVIEN_FAIL,
+    DEL_NHANVIEN
     
    } from '../constants/actionType';
    
@@ -26,7 +32,7 @@ import {
    };
 
 // addNhanVien
-   const fetchAddNhanVien = function* fetchAddNhanVien(item) {
+   const addNhanVien = function* addNhanVien(item) {
     try {
         const receivedData = yield nhanVienApi.addNhanVienApi(item);
         yield put({ type: ADD_NHANVIEN_SUCCESS, data: receivedData });
@@ -34,6 +40,33 @@ import {
         yield put({ type: ADD_NHANVIEN_FAIL, error });
     }
   };
-export const watchFetchAddNhanVien = function* watchFetchAddNhanVien() {
-    yield takeLatest(ADD_NHANVIEN, fetchAddNhanVien);
+export const watchAddNhanVien = function* watchAddNhanVien() {
+    yield takeLatest(ADD_NHANVIEN, addNhanVien);
+};
+
+// editNhanVien
+const editNhanVien = function* editNhanVien(item) {
+    try {
+        const receivedData = yield nhanVienApi.editNhanVienApi(item);
+        yield put({ type: EDIT_NHANVIEN_SUCCESS, data: receivedData });
+    } catch (error) {
+        yield put({ type: EDIT_NHANVIEN_FAIL, error });
+    }
+  };
+export const watchEditNhanVien = function* watchEditNhanVien() {
+    yield takeLatest(EDIT_NHANVIEN, editNhanVien); 
+};
+ 
+// delNhanVien
+const delNhanVien = function* delNhanVien(item) {
+    try {
+        const receivedData = yield nhanVienApi.delNhanVienApi(item);
+        //this.fetchListNhanVien();
+        yield put({ type: DEL_NHANVIEN_SUCCESS, data: receivedData });
+    } catch (error) {
+        yield put({ type: DEL_NHANVIEN_FAIL, error });
+    }
+  };
+export const watchDelNhanVien = function* watchDelNhanVien() {
+    yield takeLatest(DEL_NHANVIEN, delNhanVien);
 };

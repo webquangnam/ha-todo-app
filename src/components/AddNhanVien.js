@@ -51,7 +51,7 @@ export class AddNhanVien extends Component {
 
   render() {
     //const {ten, sdt, email, diachi} = this.state;
-    console.log('this.props', this.props);
+    //console.log('this.props', this.props);
     return (
         <form className="form-horizontal" onSubmit={this.onSubmit}>
         <div className="form-group">
@@ -94,7 +94,7 @@ export class AddNhanVien extends Component {
 
 
 const mapStateFromProps=state=>{
-  console.log('state', state);
+  //console.log('state', state);
   const {nhanVienReducer}=state;
   return {nhanVienReducer}
 }
@@ -102,4 +102,3 @@ export default connect(
 mapStateFromProps,
 { addNhanViens, listNhanViens }
 )(AddNhanVien);
-

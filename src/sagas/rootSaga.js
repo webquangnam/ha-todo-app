@@ -1,11 +1,13 @@
 //Saga effects
 import { fork, all } from 'redux-saga/effects';
-import { watchFetchListNhanVien, watchFetchAddNhanVien } from './nhanVienSaga';
+import { watchFetchListNhanVien, watchAddNhanVien, watchEditNhanVien, watchDelNhanVien } from './nhanVienSaga';
 
 const rootSaga = function* rootSaga() {
     yield all([
         fork(watchFetchListNhanVien),
-        fork(watchFetchAddNhanVien)
+        fork(watchAddNhanVien),
+        fork(watchEditNhanVien),
+        fork(watchDelNhanVien)
     ]);
 };
 

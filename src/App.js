@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import ListTodo from './components/ListTodo';
 import FormSubmit from './components/FormSubmit';
-import DemoAntd from './components/DemoAntd';
+//import DemoAntd from './components/DemoAntd';
 
 import { connect } from 'react-redux';
 import { listTodo } from './actions/toDoActions';
@@ -42,8 +42,6 @@ class App extends Component {
         <Header/>
         <ListTodo items={data}/>
         <FormSubmit />
-
-        <DemoAntd/>
       </div>
     );
   }
