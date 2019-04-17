@@ -14,7 +14,7 @@ let initData = [];// status,
 const nhanVienReducer = (data = initData, action) => {
     switch (action.type) {
         case LIST_NHANVIEN_SUCCESS:
-            console.log('action', action);
+            
             data = action.data;
           return data;
         case LIST_NHANVIEN_FAIL:
@@ -22,6 +22,7 @@ const nhanVienReducer = (data = initData, action) => {
 
         case ADD_NHANVIEN_SUCCESS:
             data = action.data;
+            console.log('action', action);
             return data;
 
         case ADD_NHANVIEN_FAIL:
