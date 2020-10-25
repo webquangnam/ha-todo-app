@@ -1,6 +1,6 @@
 const getNhanVienApi = function* getNhanVienApi() {
 //const json = yield fetch('https://highlightsfootball.com/wp-json/wp/v2/posts')
-const json = yield fetch('http://vntests.com/APIReact/dsnhanvien.php')
+const json = yield fetch('http://webquangnam.net/APIReact/dsnhanvien.php')
   .then(response => response.json(), );
   return yield json;
 };
@@ -8,7 +8,7 @@ const json = yield fetch('http://vntests.com/APIReact/dsnhanvien.php')
 const addNhanVienApi = function* addNhanVienApi(data) {
   console.log('dataAdd', data.item);
   //const json = yield fetch('https://highlightsfootball.com/wp-json/wp/v2/posts')
-  const json = yield fetch('http://vntests.com/APIReact/addnhanvien.php', { method: 'POST', body: data.item })
+  const json = yield fetch('http://webquangnam.net/APIReact/addnhanvien.php', { method: 'POST', body: data.item })
      .then(response => response.json(), );
      return yield json;
 };
@@ -16,8 +16,8 @@ const addNhanVienApi = function* addNhanVienApi(data) {
 // edit nhan vien
 const editNhanVienApi = function* editNhanVienApi(data) {
   //const json = yield fetch('https://highlightsfootball.com/wp-json/wp/v2/posts')
-  console.log('dataEdit', data.item);
-  const json = yield fetch('http://vntests.com/APIReact/editnhanvien.php', { method: 'POST', body: data.item })
+  console.log('dataEdit', data.item); 
+  const json = yield fetch('http://webquangnam.net/APIReact/editnhanvien.php', { method: 'POST', body: data.item })
     .then(response => response.json(), );
     
     return yield json;
@@ -27,9 +27,8 @@ const editNhanVienApi = function* editNhanVienApi(data) {
 const delNhanVienApi = function* delNhanVienApi(data) {
   //const json = yield fetch('https://highlightsfootball.com/wp-json/wp/v2/posts')
   console.log('dataDelete', data.item);
-  const json = yield fetch('http://vntests.com/APIReact/delnhanvien.php', { method: 'POST', body: data.item })
+  const json = yield fetch('http://webquangnam.net/APIReact/delnhanvien.php', { method: 'POST', body: data.item })
     .then(response => response.json(), );
-    
     return yield json;
   };
 

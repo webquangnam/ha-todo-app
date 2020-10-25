@@ -33,6 +33,7 @@ import {
 
 // addNhanVien
    const addNhanVien = function* addNhanVien(item) {
+    console.log('dataAdd_nhanvienSaga', item);
     try {
         const receivedData = yield nhanVienApi.addNhanVienApi(item);
         yield put({ type: ADD_NHANVIEN_SUCCESS, data: receivedData });

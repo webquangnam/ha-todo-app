@@ -8,7 +8,7 @@ export class AddNhanVien extends Component {
     super(props);
     this.state = {
       ten:'',
-      sdt:'',
+      sdt:0,
       email:'',
       diachi:''
     }
@@ -39,10 +39,10 @@ export class AddNhanVien extends Component {
     this.props.addNhanViens(item);
     this.props.listNhanViens();
 
-    //console.log('item', item);
+    console.log('item', item);
     this.setState({ 
       ten:'',
-      sdt:'',
+      sdt:0,
       email:'',
       diachi:''
     });

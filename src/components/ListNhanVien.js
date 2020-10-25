@@ -14,7 +14,9 @@ export class ListNhanVien extends Component {
           ten:'',
           sdt:'',
           email:'',
-          diachi:''
+          diachi:'',
+          hatest:0,
+          hatestABC:0,
         }
         this.onChangeValue = this.onChangeValue.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -34,9 +36,27 @@ export class ListNhanVien extends Component {
     onCloseModal = () => {
       this.setState({ open: false });
     };
+
+    onClickBtn = () => {
+      this.setState({ hatest: this.state.hatest + 1 });
+    };
   
     componentDidMount() {
         this.props.listNhanViens();
+        //console.log('hatest', this.state.hatest)
+    }
+    async componentDidUpdate(nextState){
+      console.log('hatest', this.state.hatest);
+      let {hatest} = this.state;
+      if(this.state.hatest === 3){
+        this.setState({ hatest: 12 });
+        console.log('componentDidUpdate-state.hatest', this.state.hatest);
+        console.log('c-hatest', hatest);
+        console.log('componentDidUpdate-hatesNext', nextState.hatest);
+        //this.setState({ hatest: 121 });
+        // console.log('componentDidUpdate-hatestPrev', prevState.hatest);
+      }
+      
     }
 
     static getDerivedStateFromProps(nextProps, prevState){
@@ -87,12 +107,16 @@ export class ListNhanVien extends Component {
 
   render() {
     
-    console.log('this.state', this.state);
+    // console.log('this.state', this.state);
     const { data, open, nhanVienID, ten, sdt,email, diachi } = this.state;
     return (
       
       <div id = "main">
+        <button onClick={this.onClickBtn}>
+          ha test
+        </button>
         <Modal open={open} onClose={this.onCloseModal} center >
+        
           <h2>Edit nhân viên</h2>
           <form className="form-horizontal" onSubmit={this.onSubmit} style={{width: '500px'}}>
             <div className="form-group">
@@ -165,7 +189,7 @@ export class ListNhanVien extends Component {
 }
 
 const mapStateFromProps=state=>{
-    console.log('state', state);
+    // console.log('state', state);
     const {nhanVienReducer}=state;
     return {nhanVienReducer}
   }
